@@ -95,7 +95,9 @@
 		2244ADD11F71DAE400A2EBC5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				2235098B1F713666006F5F92 /* Main.storyboard */,
+				2297242A1F7483F3007898CA /* Model */,
+				2297242B1F7483F4007898CA /* View */,
+				229724291F7483F3007898CA /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -103,7 +105,9 @@
 		2244ADD41F71DBD700A2EBC5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				224EBD211F73379400325ECA /* Home.storyboard */,
+				229724271F74832A007898CA /* Model */,
+				229724281F74832B007898CA /* View */,
+				229724261F74832A007898CA /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -145,6 +149,50 @@
 				224EBD2B1F73398F00325ECA /* Profile.storyboard */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		229724261F74832A007898CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				224EBD211F73379400325ECA /* Home.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		229724271F74832A007898CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		229724281F74832B007898CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		229724291F7483F3007898CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2235098B1F713666006F5F92 /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2297242A1F7483F3007898CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2297242B1F7483F4007898CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3BE1BE75B5C4CFC1DCA71942 /* Frameworks */ = {
