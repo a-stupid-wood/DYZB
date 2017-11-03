@@ -15,7 +15,7 @@ enum MethodType {
 }
 
 class NetworkTools {
-    class func requestData(_ type : MethodType, URLString : String, parameters : [String : String]? = nil, finishedCallback : @escaping (_ result : AnyObject) -> ()) {
+    class func requestData(_ type : MethodType, URLString : String, parameters : [String : Any]? = nil, finishedCallback : @escaping (_ result : Any) -> ()) {
         
         //1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
@@ -29,7 +29,7 @@ class NetworkTools {
             }
             
             //4.将结果回调出去
-            finishedCallback(result as AnyObject)
+            finishedCallback(result)
         }
     }
 }

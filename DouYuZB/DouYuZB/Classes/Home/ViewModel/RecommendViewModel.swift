@@ -31,10 +31,10 @@ extension RecommendViewModel {
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", parameters: ["time" : Date.getCurrentTime()]) { (result) in
             //1.将result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else{return}
+            guard let resultDict = result as? [String : Any] else{return}
             
             //2.根据data该key，获取数组
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else {return}
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
             
             //3.遍历字典，并且转成模型对象
             //3.1设置组的属性
@@ -54,10 +54,10 @@ extension RecommendViewModel {
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters) { (result) in
             //1.将result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else{return}
+            guard let resultDict = result as? [String : Any] else{return}
             
             //2.根据data该key，获取数组
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else {return}
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
             
             //3.遍历字典，并且转成模型对象
             //3.1.设置组的属性
@@ -78,10 +78,10 @@ extension RecommendViewModel {
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) { (result) in
             //1.将result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else{return}
+            guard let resultDict = result as? [String : Any] else{return}
             
             //2.根据data该key，获取数组
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else {return}
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
             
             //3.遍历数组，获取字典，并且将字典转成模型对象
             for dict in dataArray {
@@ -106,10 +106,10 @@ extension RecommendViewModel {
         //http://www.douyutv.com/api/v1/slide/6?version=2.542
         NetworkTools.requestData(.get, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.542"]) { (result) in
             //1.获取整体字典数据
-            guard let resultDict = result as? [String : NSObject] else {return}
+            guard let resultDict = result as? [String : Any] else {return}
             
             //2.按照data的key获取数据
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else {return}
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
             
             //3.字典转模型对象
             for dict in dataArray {

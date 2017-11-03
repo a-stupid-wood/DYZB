@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmD-T0-iCN">
-                        <rect key="frame" x="15.5" y="65.5" width="49.5" height="14.5"/>
+                        <rect key="frame" x="15.5" y="64.5" width="49.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="7ix-xf-1hy"/>
                         </constraints>
@@ -30,9 +29,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Nt-yw-beg">
-                        <rect key="frame" x="17.5" y="15" width="45" height="45"/>
+                        <rect key="frame" x="17.5" y="14.5" width="45" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="3Nt-yw-beg" secondAttribute="height" multiplier="1:1" id="xW2-EU-2LQ"/>
+                            <constraint firstAttribute="width" constant="45" id="TFx-7V-Lit"/>
+                            <constraint firstAttribute="height" constant="45" id="zqj-ga-RYb"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -41,18 +41,29 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00m-dR-hNG">
+                        <rect key="frame" x="0.0" y="89" width="80" height="1"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="62j-QS-cRE"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="3Nt-yw-beg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7PC-Pb-ar9"/>
-                <constraint firstItem="EmD-T0-iCN" firstAttribute="top" secondItem="3Nt-yw-beg" secondAttribute="bottom" constant="5" id="Thp-03-ajn"/>
-                <constraint firstAttribute="bottom" secondItem="EmD-T0-iCN" secondAttribute="bottom" constant="10" id="VUK-pg-ijT"/>
+                <constraint firstItem="EmD-T0-iCN" firstAttribute="centerX" secondItem="3Nt-yw-beg" secondAttribute="centerX" id="6MK-4X-LO6"/>
+                <constraint firstItem="EmD-T0-iCN" firstAttribute="top" secondItem="3Nt-yw-beg" secondAttribute="bottom" constant="5" id="AQz-TQ-N2O"/>
                 <constraint firstItem="EmD-T0-iCN" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="dws-wF-x3g"/>
-                <constraint firstItem="3Nt-yw-beg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="vaf-9L-YyW"/>
+                <constraint firstItem="3Nt-yw-beg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eiw-lT-aYI"/>
+                <constraint firstItem="00m-dR-hNG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="faZ-LF-gN7"/>
+                <constraint firstAttribute="bottom" secondItem="00m-dR-hNG" secondAttribute="bottom" id="hUV-cJ-9fP"/>
+                <constraint firstItem="3Nt-yw-beg" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-8" id="swR-rU-Qz0"/>
+                <constraint firstAttribute="trailing" secondItem="00m-dR-hNG" secondAttribute="trailing" id="uTn-mB-lu5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="144" height="134"/>
             <connections>
+                <outlet property="bottomLineView" destination="00m-dR-hNG" id="q1o-sy-3cs"/>
                 <outlet property="iconImageView" destination="3Nt-yw-beg" id="DzJ-7C-FCi"/>
                 <outlet property="titleLabel" destination="EmD-T0-iCN" id="3rP-TL-s2g"/>
             </connections>

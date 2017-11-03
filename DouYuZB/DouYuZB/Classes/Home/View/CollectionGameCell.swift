@@ -11,16 +11,24 @@ import Kingfisher
 
 class CollectionGameCell: UICollectionViewCell {
     
+    //MARK: 定义属性
+    var isHideBottomLine : Bool = false {
+        didSet {
+            bottomLineView.isHidden = isHideBottomLine
+        }
+    }
+    
     //MARK: 控件属性
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bottomLineView: UIView!
     
     //MARK: 定义模型属性
-    var group : AnchorGroup? {
+    var baseGame : BaseGameModel? {
         didSet {
-            titleLabel.text = group?.tag_name
+            titleLabel.text = baseGame?.tag_name
             
-            let iconURL = URL(string: group?.icon_url ?? "")
+            let iconURL = URL(string: baseGame?.icon_url ?? "")
             iconImageView.kf.setImage(with: iconURL, placeholder: UIImage(named: "home_more_btn"))
         }
     }
