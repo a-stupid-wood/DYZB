@@ -8,10 +8,9 @@
 
 import UIKit
 
-class RecommendViewModel {
+class RecommendViewModel : BaseViewModel {
 
     //MARK:- 懒加载属性
-    lazy var anchorGroups : [AnchorGroup] = [AnchorGroup]()
     lazy var cycleModels : [CycleModel] = [CycleModel]()
     fileprivate lazy var bigDataGroup : AnchorGroup = AnchorGroup()
     fileprivate lazy var prettyGroup : AnchorGroup = AnchorGroup()
@@ -49,7 +48,7 @@ extension RecommendViewModel {
             //4.离开组
             dGroup.leave()
         }
-        //2.请求第二部分颜值数据
+        //4.请求第二部分颜值数据
         //http://capi.douyucdn.cn/api/v1/getVerticalRoom?limit=4&offset=0&time=1509597801
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters) { (result) in
@@ -73,26 +72,14 @@ extension RecommendViewModel {
             //4.离开组
             dGroup.leave()
         }
-        //3.请求后面部分游戏数据
+        //5.请求后面部分游戏数据
         //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1509597801
         dGroup.enter()
-        NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) { (result) in
-            //1.将result转成字典类型
-            guard let resultDict = result as? [String : Any] else{return}
-            
-            //2.根据data该key，获取数组
-            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
-            
-            //3.遍历数组，获取字典，并且将字典转成模型对象
-            for dict in dataArray {
-                let group = AnchorGroup(dict: dict)
-                self.anchorGroups.append(group)
-            }
-            //4.离开组
+        loadAnchorData(isGroup: true, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
             dGroup.leave()
         }
         
-        //所有的数据请求到之后进行排序
+        //6.所有的数据请求到之后进行排序
         dGroup.notify(queue: DispatchQueue.main, work: DispatchWorkItem(block: {
             self.anchorGroups.insert(self.prettyGroup, at: 0)
             self.anchorGroups.insert(self.bigDataGroup, at: 0)
