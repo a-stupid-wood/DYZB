@@ -53,7 +53,7 @@ extension AmuseMenuView : UICollectionViewDataSource,UICollectionViewDelegateFlo
         
         let pageNum = (groups.count - 1) / 8 + 1
         pageControl.numberOfPages = pageNum
-        return 2
+        return pageNum
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

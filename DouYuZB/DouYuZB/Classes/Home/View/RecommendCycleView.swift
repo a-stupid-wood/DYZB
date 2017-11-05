@@ -110,7 +110,7 @@ extension RecommendCycleView {
     
     @objc fileprivate func scrollToNext() {
         let currentOffsetX = collectionView.contentOffset.x
-        let offsetX = currentOffsetX + collectionView.bounds.width
+        let offsetX = CGFloat(Int(currentOffsetX / collectionView.bounds.width) + 1) *  collectionView.bounds.width
         
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
     }

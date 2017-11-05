@@ -39,13 +39,18 @@ extension AmuseViewController {
         //1.给父类中ViewModel进行赋值
         baseVM = amuseVM
         
-        //请求数据
+        //2.请求数据
         amuseVM.loadAmuseData {
+            //2.1.刷新表格
             self.collectionView.reloadData()
             
+            //2.2.调整数据
             var tempGroups = self.amuseVM.anchorGroups
             tempGroups.removeFirst()
             self.menuView.groups = tempGroups
+            
+            //2.3.数据请求完成
+            self.loadDataFinished()
         }
     }
 }
